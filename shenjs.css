@@ -1,0 +1,36 @@
+/* CSS declarations go here */
+
+body {
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  font-family: monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #fff;
+}
+h1 {
+  font-size: 4.5vh;
+}
+
+h3 {
+  font-size: 2.8vh;
+  font-weight: normal;
+}
+
+.page {
+  height: 100vh;
+  background: #333;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+}
