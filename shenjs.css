@@ -14,22 +14,34 @@ body {
 a {
   color: #fff;
 }
+
+img {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
 h1 {
-  font-size: 4.5vh;
+  font-size: 4.2vh;
 }
 
 h3 {
-  font-size: 2.8vh;
+  font-size: 2.5vh;
   font-weight: normal;
+}
+
+p {
+  font-size: 2vh;
 }
 
 .page {
   height: 100vh;
   background: #333;
   text-align: center;
-  display: flex;
+  display: -webkit-flex;
   align-items: center;
   justify-content: center;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
 }
 
 .content {
