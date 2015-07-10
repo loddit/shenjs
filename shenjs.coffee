@@ -14,7 +14,7 @@ if Meteor.isClient
       userAgent: window.navigator.userAgent
     Session.set 'intervalId', Meteor.setInterval ->
       Meteor.call('heartbeat', myDeviceId)
-    , 300
+    , 1000
     Session.set 'myDeviceId', myDeviceId
 
   PageIndexes.find({}).observe
@@ -51,7 +51,7 @@ if Meteor.isServer
 
   Meteor.startup ->
     Meteor.setInterval ->
-      Devices.remove {ts: {$lt: Date.now() - 1000}}
+      Devices.remove {ts: {$lt: Date.now() - 3000}}
       console.log Devices.find({}).fetch().length
     , 1000
 
