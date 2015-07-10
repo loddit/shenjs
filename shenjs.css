@@ -25,15 +25,25 @@ h1 {
 }
 
 h2 {
-  font-size: 3.2vh;
+  font-size: 3vh;
 }
 
 p {
   font-size: 2.3vh;
 }
 
+pre {
+  font-size: 1.9vh;
+  text-align: left;
+  display: inline-block;
+}
+
 small {
   font-size: 2vh;
+}
+
+mark {
+  background: #ffefaa;
 }
 
 .page {
@@ -43,13 +53,28 @@ small {
   position: relative;
   padding: 10px;
 }
+.page:nth-child(odd) {
+  background: #222;
+}
 
 .content {
   position:absolute;
-  margin-top: -5%;
   width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
+}
+.content p {
+  line-height: 2;
+}
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (max-width: 480px) {
+  .content {
+    margin-top: -10%;
+  }
 }
