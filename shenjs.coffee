@@ -28,7 +28,7 @@ if Meteor.isClient
         scrollToPage(currentPageNumber)
       setTimeout ->
         Jumps.remove jump._id
-      ,1000
+      , 5000
 
   keyguru ['up'], (event) ->
     event.preventDefault()
