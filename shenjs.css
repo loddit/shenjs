@@ -48,9 +48,10 @@ mark {
 }
 
 #qr {
-  position: absolute;
+  position: fixed;
+  top: 100px;
   right: 100px;
-  margin-top: 50px;
+  z-index: 100;
 }
 
 #counter {
