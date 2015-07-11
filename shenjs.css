@@ -5,6 +5,7 @@ body {
   margin: 0;
   color: #fff;
   font-family: monospace;
+  overflow: hidden;
 }
 
 * {
@@ -46,6 +47,17 @@ mark {
   background: #ffefaa;
 }
 
+#qr {
+  position: absolute;
+  right: 100px;
+  margin-top: 50px;
+}
+
+#counter {
+  font-size: 25vh;
+  font-family: cursive;
+}
+
 .page {
   height: 100vh;
   background: #333;
@@ -53,6 +65,7 @@ mark {
   position: relative;
   padding: 10px;
 }
+
 .page:nth-child(odd) {
   background: #222;
 }
@@ -76,5 +89,8 @@ mark {
 @media (max-width: 480px) {
   .content {
     margin-top: -10%;
+  }
+  #qr {
+    display: none;
   }
 }

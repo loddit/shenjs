@@ -1,5 +1,5 @@
 Devices = new Meteor.Collection 'devices'
-PageIndexes = new Meteor.Collection 'page_indexes'
+Jumps = new Meteor.Collection 'jumps'
 
 if Meteor.isClient
   currentPageNumber = 1
@@ -9,6 +9,9 @@ if Meteor.isClient
     if pageDOM
       scrollTo(pageDOM.offsetTop)
 
+  Template.counter.helpers
+    count: -> Devices.find({}).count()
+
   unless Session.get 'myDeviceId'
     myDeviceId = Devices.insert
       userAgent: window.navigator.userAgent
@@ -17,9 +20,9 @@ if Meteor.isClient
     , 1000
     Session.set 'myDeviceId', myDeviceId
 
-  PageIndexes.find({}).observe
-    added: (pageIndex) ->
-      pageNumber = pageIndex.number
+  Jumps.find({}).observe
+    added: (jump) ->
+      pageNumber = jump.number
       if pageNumber isnt currentPageNumber
         currentPageNumber = pageNumber
         scrollToPage(currentPageNumber)
@@ -29,7 +32,7 @@ if Meteor.isClient
     if currentPageNumber > 1
       currentPageNumber--
       scrollToPage(currentPageNumber)
-      PageIndexes.insert
+      Jumps.insert
         number: currentPageNumber
 
   keyguru ['down'], (event) ->
@@ -37,7 +40,7 @@ if Meteor.isClient
     if currentPageNumber < document.querySelectorAll('.page').length
       currentPageNumber++
       scrollToPage(currentPageNumber)
-      PageIndexes.insert
+      Jumps.insert
         number: currentPageNumber
 
 if Meteor.isServer
@@ -49,9 +52,14 @@ if Meteor.isServer
         $set:
           ts: Date.now()
 
+  Jumps.find({}).observe
+    added: (jump) ->
+      setTimeout ->
+        Jumps.remove jump._id
+      ,1000
+
   Meteor.startup ->
     Meteor.setInterval ->
       Devices.remove {ts: {$lt: Date.now() - 3000}}
       console.log Devices.find({}).fetch().length
     , 1000
-
