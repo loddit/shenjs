@@ -223,15 +223,56 @@
 
   <div class="page">
     <div class="content">
-      <h1>Angular Tips for Real-Time </h1>
+      <h1>Tips for Real-Time </h1>
       <br>
-      <h2>Push For Everything After Connected</h2>
-      <h2>API For History</h2>
-      <h2>Handle Uncertain Sequence</h2>
-      <h2>Recover After Reconnect</h2>
+      <h2>Handle Event By $rootScope Emit/On </h2>
+      <pre>
+start: () ->
+  unless isStarted()
+    @on 'channel_message', (event, params) ->
+      tryHandleMessage params
+
+    @on 'update_message', (event, params) ->
+      message = Messages.getByKey params.data.key
+      message?.updateText params.data.text
+
+    @on 'delete_message', (event, params) ->
+      Messages.deleteByKey params.data.key
+      </pre>
     </div>
   </div>
 
+  <div class="page">
+    <div class="content">
+      <h1>Tips for Real-Time </h1>
+      <br>
+      <h2>Use same Handler on API & Event push</h2>
+      <pre>
+
+<mark>joinHandler</mark>: (data) ->
+  @isMember = true
+  @clearUnread()
+
+...
+
+join: ->
+  API.joinChannel
+    id: @id
+  , (data) =>
+    @<mark>joinHandler</mark>()
+  .$promise
+
+...
+
+@on 'join_channel', (event, params) ->
+  channel = Channels.getById params.data.id
+  unless channel
+    channel = Channels.add params.data
+  channel.<mark>joinHandler</mark>(params.data)
+
+      </pre>
+    </div>
+  </div>
 
   <div class="page">
     <div class="content">
