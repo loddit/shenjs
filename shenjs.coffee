@@ -26,6 +26,9 @@ if Meteor.isClient
       if pageNumber isnt currentPageNumber
         currentPageNumber = pageNumber
         scrollToPage(currentPageNumber)
+      setTimeout ->
+        Jumps.remove jump._id
+      ,1000
 
   keyguru ['up'], (event) ->
     event.preventDefault()
@@ -51,12 +54,6 @@ if Meteor.isServer
       ,
         $set:
           ts: Date.now()
-
-  Jumps.find({}).observe
-    added: (jump) ->
-      setTimeout ->
-        Jumps.remove jump._id
-      ,1000
 
   Meteor.startup ->
     Meteor.setInterval ->
