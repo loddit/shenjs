@@ -4,7 +4,7 @@
 </head>
 
 <body>
-  <img id="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAABjElEQVRYw+2XMW7DMAxFGWjIqCPoJunFjMiGL5bcREfQmEEw+z/dxGlaoECBSBrMwA7st3yI/CQtsscef8RREcklEaezLp6Pl14I3yVNkf/57EcRX5uouuS0yIC3Zz9BXwuiaYCmgqs/ImFWzeKXJoSZK2EMauw1p02J1XUJcxr8jKp6rfj3k3vAV9np+Iv7302ozeGaU8yDHKDumvshptn6TkFVMXuXugSuYmWvfeeQn86tOaHuIrp2JKgeZaN1yDHdAucC+g7YROdLZaIS0PGs7zidcD9tOW1O1pkp1nc4s06b56oQkVso+M2Y2qNEXZ5y2p5YVxZmdbCnk9Qmt8Az4zxQ22ruM6saYcbgq5jYl2Pm+Ug/BBMLfoPjbOfbek89grlQ6C7QiNr+0EsvxEK5D3Kiy+Flor+frDsFqgoaeW6TLt++FyoQ26vY+VjZcPZDcw+EM5Ou504R1Ta/BmR1/cid86GuG4KdwlGt/6G6Alm/58z1VtfX2uSrruntqNgpnudpY7LHHv+KT36fNMJxEeD2AAAAAElFTkSuQmCC">
+  <img id="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAABMklEQVRYw+2XPa7EIAyEHaWg5AgcJTfLsjfLUThCSoqIebZhd7M/9bOLWCRS+BrLMGOH6Ior/jcgsfEzoVCQj+aGHPzEjWhBJQqFv1Y/JOKI27wvE5BDuaF4IxQxadY+CXjPG9HT1oqWX/fAknSVcOItcNbf+rEkg+/EKll/eYwhwb6oSqgFtPeKmpOZbW8nuYyUMiWuaHZDuiVLRSFZ3+rpJloTzfcRouBXx7AnWlRepCrJb9p2S9R05C13VLZTdkQwA1posLxPtbYn7NTdslsvZ3j2EgdEzZr5SDmcVW9Mns7Y3fB82uak9zn1a50P6kcPtiRjPoDMVetI3A3RueqgpelwIBOzNxKlo9x51dScEZn5apLtAEdET5srys7njYz/RlYJEUtk+tSPJbniCvv4A72trpXOo1wDAAAAAElFTkSuQmCC">
   <div class="page">
     <div class="content">
       {{> counter}}
@@ -23,7 +23,7 @@
       <br>
       <br>
       <small>
-        @loddit BearyInnovative Inc 2015
+        <a href="https://twitter.com/loddit">@loddit</a> <a href="http://bearyinnovative.com">BearyInnovative Inc</a> 2015
       </small>
     </div>
   </div>
@@ -223,32 +223,41 @@
 
   <div class="page">
     <div class="content">
-      <h1>Tips for Real-Time </h1>
+      <h1>Tips for Coding</h1>
       <br>
-      <h2>Handle Event By $rootScope Emit/On </h2>
+      <h2>Handle Event By Emit/On </h2>
       <pre>
-start: () ->
-  unless isStarted()
-    @on 'channel_message', (event, params) ->
-      tryHandleMessage params
 
-    @on 'update_message', (event, params) ->
-      message = Messages.getByKey params.data.key
-      message?.updateText params.data.text
+(WebSocket Client)
+ onMessage = (e) ->
+    data = angular.fromJson e.data
+      $rootScope.$emit data.type, data
 
-    @on 'delete_message', (event, params) ->
-      Messages.deleteByKey params.data.key
+....
+
+(Event Handlers)
+
+  @on 'channel_message', (event, params) ->
+    ...
+
+  @on 'update_message', (event, params) ->
+    ...
+
+  @on 'delete_message', (event, params) ->
+    ...
+
       </pre>
     </div>
   </div>
 
   <div class="page">
     <div class="content">
-      <h1>Tips for Real-Time </h1>
+      <h1>Tips for Coding</h1>
       <br>
       <h2>Use same Handler on API & Event push</h2>
       <pre>
 
+(Channel Model)
 <mark>joinHandler</mark>: (data) ->
   @isMember = true
   @clearUnread()
@@ -264,19 +273,19 @@ join: ->
 
 ...
 
+(Event Handlers)
 @on 'join_channel', (event, params) ->
   channel = Channels.getById params.data.id
   unless channel
     channel = Channels.add params.data
   channel.<mark>joinHandler</mark>(params.data)
-
       </pre>
     </div>
   </div>
 
   <div class="page">
     <div class="content">
-      <h1>FAQ</h1>
+      <h1>THANKS</h1>
     </div>
   </div>
 </body>
