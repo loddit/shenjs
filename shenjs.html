@@ -86,11 +86,11 @@
 +--------+                   +------------+  +----+
 |        | ------ AJAX ----- | API Server |--| DB |
 |        |                   +------------+  +----+
-|        |                      |       |          
-| Client |                      R    +-----+       
-|        |                      P    |queue|       
-| Web /  |                      C    +-----+       
-| Mobile |                      |       |          
+|        |                      |       |
+| Client |                      R    +-----+
+|        |                      P    |queue|
+| Web /  |                      C    +-----+
+| Mobile |                      |       |
 |        |                    +-------------------+
 |        | -- SEND/RECEIVE -- | Keep-Alive Server |
 +--------+                    +-------------------+
@@ -182,7 +182,7 @@
     <div class="content">
       <h1>DIY Protocol IV</h1>
       <br>
-      <h2>Use ping/pong to check disconnect</h2>
+      <h2>Use ping/pong to monitor disconnect</h2>
       <pre>
 {
   type: "ping",
@@ -190,9 +190,11 @@
 }
 
 {
-  type:"pong",
-  reply_to: 12,
-  ts: 1436577906037
+  type: "reply",
+  status: "ok",
+  ts: 1436695680405,
+  call_id: 3,
+  code: 0
 }
       </pre>
     </div>
