@@ -3,6 +3,9 @@ Jumps = new Meteor.Collection 'jumps'
 
 if Meteor.isClient
   currentPageNumber = 1
+  document.addEventListener 'click', (event) ->
+    unless event.target.className is 'tip-btn'
+      onclick = $('.tips').fadeOut()
 
   scrollToPage = (pageNumber) ->
     pageDOM = document.querySelectorAll('.page')[pageNumber - 1]

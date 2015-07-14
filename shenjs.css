@@ -49,14 +49,52 @@ mark {
 
 #qr {
   position: fixed;
-  top: 100px;
-  right: 100px;
+  top: 50px;
+  right: 50px;
   z-index: 100;
 }
 
 #counter {
   font-size: 25vh;
   font-family: sans-serif;
+}
+
+.tips {
+  display: none;
+  width: 400px;
+  position:absolute;
+  z-index: 99;
+  background: #fff;
+  opacity: .95;
+  padding: 20px;
+  color: #666;
+  top: 50%;
+  left: 50%;
+  border-radius: 4px;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+}
+
+.tips p {
+  text-align: left;
+}
+
+.tip-btn {
+  display: inline-block;
+  color: #888;
+  font-size: 3vh;
+  font-family: serif;
+  border: 1px solid #888;
+  width: 3.5vh;
+  height: 3.5vh;
+  line-height: 3.5vh;
+  border-radius: 50%;
+  cursor: pointer
+}
+
+.tip-btn:hover {
+  color: #ccc;
+  border-color: #ccc;
 }
 
 .page {
@@ -87,7 +125,7 @@ mark {
 }
 
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .content {
     margin-top: -10%;
   }

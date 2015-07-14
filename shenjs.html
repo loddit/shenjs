@@ -6,14 +6,38 @@
 <body>
   <img id="qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQMAAACXljzdAAAABlBMVEX///8AAABVwtN+AAABMklEQVRYw+2XPa7EIAyEHaWg5AgcJTfLsjfLUThCSoqIebZhd7M/9bOLWCRS+BrLMGOH6Ior/jcgsfEzoVCQj+aGHPzEjWhBJQqFv1Y/JOKI27wvE5BDuaF4IxQxadY+CXjPG9HT1oqWX/fAknSVcOItcNbf+rEkg+/EKll/eYwhwb6oSqgFtPeKmpOZbW8nuYyUMiWuaHZDuiVLRSFZ3+rpJloTzfcRouBXx7AnWlRepCrJb9p2S9R05C13VLZTdkQwA1posLxPtbYn7NTdslsvZ3j2EgdEzZr5SDmcVW9Mns7Y3fB82uak9zn1a50P6kcPtiRjPoDMVetI3A3RueqgpelwIBOzNxKlo9x51dScEZn5apLtAEdET5srys7njYz/RlYJEUtk+tSPJbniCvv4A72trpXOo1wDAAAAAElFTkSuQmCC">
   <div class="page">
+    <div class="tips">
+      <p>
+        这是一个实时(Real-Time)的 Slide，你在按上下翻页时，其他人同时观看的人也会翻页。
+      </p>
+      <p>
+        本来是为了在会场演示时，让下面的人直接看自己手机也可以观看的。
+      </p>
+      <p>
+        现在仍然保留了这个功能，让大家感受一下实时，不然我就白做了...
+      </p>
+    </div>
     <div class="content">
       {{> counter}}
       <h2>People online</h2>
       <p>You are one of them</p>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        对于实时应用，我曾经怀疑它的网络世界的重要性。对于维基百科，技术论坛，淘宝这些东西它们不是实时的对我并没有什么影响。
+        那么实时真的重要吗？ 是不是有点搞技术的自己这边在幻想这个东西很重要。
+      </p>
+      <p>
+        后来从做了一段时间实时系统后，最大的感受是，实时是也是一种信息量。当你对一个东西对你来讲特别重要的时候，你就想尽快的知道关于它的任何信息，当这个东西又有比较高的更新频率，这个时候实时就是十分重要的。
+      </p>
+      <p>
+        让我们进入主题，说说实时系统设计的一些小经验。
+      </p>
+    </div>
     <div class="content">
       <h1>Real-Time App Practice</h1>
       <p>What I Learned On Building <a href="https://bearychat.com" target="_">BearyChat</a></p>
@@ -25,23 +49,21 @@
       <small>
         <a href="https://twitter.com/loddit">@loddit</a> <a href="http://bearyinnovative.com">BearyInnovative Inc</a> 2015
       </small>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
-    <div class="content">
-      <h1>About Me</h1>
-      <br>
-      <img src="data:image/png;base64,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">
-      <br>
-      <h2>@loddit</h2>
-      <br>
-      <p>Python > Ruby > Python > CoffeeScript!</p>
-      <p>Spine > Backbone > Meteor > Angular</p>
+    <div class="tips">
+      <p>
+        首先这些经验在打造我们团队的产品 BearyChat 过程中得来的，它是一个为团队工作设计的聊天工具。
+      </p>
+      <p>
+        我们从14年7月开始写第一行代码，一年多的时间我们有遇到并解决了很多问题，选一些和实时有关分享给大家。
+        希望能在你自己设计一个实时系统的时候，会有些帮助。
+      </p>
     </div>
-  </div>
 
-  <div class="page">
     <div class="content">
       <img src="data:image/png;base64,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">
       <br>
@@ -52,20 +74,47 @@
       <p>Design for chinese people</p>
       <p>My first Angular App</p>
       <p>First code written at July 2014</p>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
     <div class="content">
+      <div class="tips">
+        <p>
+          不过和很多讲实时的 Slide 不同，这里不讨论实现实时具体技术，WebSocket 已经可以认为是 Web 端主流了。
+        </p>
+        <p>
+          这里讨论一些其他的东西。
+        </p>
+      </div>
+
+
       <h1>Not About</h1>
       <br>
       <br>
       <p>WebSocket / SocketIO / SockJs</p>
       <p>Long pulling / BOSH / HTTP Streaming...</p>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        很多网站的实时功能比如新消息提醒，一般都只是做为一个加分，即使没有也影响不大。
+        但是对于一个用于工作的系统里，要求就会高很多，简单说有几点:
+      </p>
+      <p>
+        一致性，保证大家看到的东西都是一样的，你所做的操作在哪里都要产生一样的效果。
+      </p>
+      <p>
+        及时性，要保证在有网络链接的时候，一有新的内容就要立即呈现出来。
+      </p>
+      <p>
+        稳定性，系统能长期的正常的工作，并且能外界条件不好的情况下，表现出最合理的行为。
+      </p>
+    </div>
     <div class="content">
       <h1>Requirements</h1>
       <br>
@@ -73,10 +122,23 @@
       <h2>Consistency</h2>
       <h2>Timeliness</h2>
       <h2>Stability</h2>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        BearyChat 的前后端通信是基于 AJAX 和长连接一起使用的。
+      </p>
+      <p>
+        后端上把业务逻辑集中在 API 服务器，长连接服务器则尽量只负责传递消息。
+      </p>
+      <p>
+        API 服务器用 Clojure，易于开发。长连接服务器用 Erlang 有出色的性能。
+      </p>
+    </div>
+
     <div class="content">
       <h1>Sturcture</h1>
       <br>
@@ -95,10 +157,30 @@
 |        | -- SEND/RECEIVE -- | Keep-Alive Server |
 +--------+                    +-------------------+
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        要做好复杂的应用，基础要打牢，需要有一个合适的协议，来让实时系统运转起来。
+      </p>
+      <p>
+        现有的 IM 协议里，XMPP 功能强大，有一定扩展性，又有现成的实现，但是由于业务逻辑太多，在尝试了一段时间后还是放弃了。
+      </p>
+      <p>
+        后来有了自己对 IM 协议的理解后，我们最终选择了自己定制协议。
+      </p>
+      <p>
+        另外介绍一些更多的选择：
+        <br>
+        DDP 是 Meteor 前后端数据同步协议，还支持类似 RPC 的调用方式，抽象出来让你不必在关系协议的细节。
+        <br>
+        SwarmJS 是一个基于 CRDT 实时数据层，可以支持实时。
+      </p>
+    </div>
+
     <div class="content">
       <h1>Protocol</h1>
       <br>
@@ -111,10 +193,20 @@
         <br>
         CRDT(not a protocol from Swarm.js)
       </p>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        使用 Event Type 来让客户端识别，可以灵活的处理不同的情况。
+      </p>
+      <p>
+        增加时间戳，让所有的收到的推送都能确定事件发生的时间，而不是依赖客户端收到的时间。
+      </p>
+    </div>
+
     <div class="content">
       <h1>DIY Protocol I</h1>
       <br>
@@ -130,10 +222,17 @@
   }
 }
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        和 API 的 Request/Response 模式不同，长连接的收发不能一一对应上。对于客户端发送的消息，就需要用一个客户端生成的 ID 用来识别对应的关系。
+      </p>
+    </div>
+
     <div class="content">
       <h1>DIY Protocol II</h1>
       <br>
@@ -155,10 +254,16 @@
   code: 0
 }
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        长连接里的数据内容使用同样的结构和字段，有利于复用，减少出错的可能。
+      </p>
+    </div>
     <div class="content">
       <h1>DIY Protocol III</h1>
       <br>
@@ -175,10 +280,16 @@
   }
 }
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        浏览器自身很难及时知道长连接已经断开，需要定时的发送 ping/pong 请求来尽快知道连接已经断开。
+      </p>
+    </div>
     <div class="content">
       <h1>DIY Protocol IV</h1>
       <br>
@@ -197,11 +308,26 @@
   code: 0
 }
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
 
   <div class="page">
+    <div class="tips">
+      <p>
+        要知道在服务器的数据才是对的，客户端要做的是尽快尽可能和服务器的数据保持一致。
+      </p>
+      <p>
+        给所有的数据建立和唯一标识符的对应关系，客户端可以识别相同的数据。
+      </p>
+      <p>
+        按照单例的用法使用数据，也保证同样的对象全局唯一。
+      </p>
+      <p>
+        仔细检查数据获取更新的逻辑，能否确保数据一致和同步。
+      </p>
+    </div>
     <div class="content">
       <h1>Dealing with your data I</h1>
       <br>
@@ -209,10 +335,22 @@
       <h2>Map Everything By Identity</h2>
       <h2>Use Object As Singleton</h2>
       <h2>Just Manage Data Carefully</h2>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        长连接建立后，要把现有数据的任何修改都推送给客户端。
+      </p>
+      <p>
+        API 则需要保证可以获取时间点之前的历史数据。
+      </p>
+      <p>
+        对于时序上可能存在的问题，比如数据有先后依赖，需要有容错机制。
+      </p>
+    </div>
     <div class="content">
       <h1>Dealing with your data II</h1>
       <br>
@@ -220,10 +358,16 @@
       <h2>API For History</h2>
       <h2>Handle Uncertain Sequence</h2>
       <h2>Recover After Reconnect</h2>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        用 Emit/On 响应事件让处理推送相对松耦合和容易维护。
+      </p>
+    </div>
     <div class="content">
       <h1>Tips for Coding</h1>
       <br>
@@ -249,10 +393,16 @@
     ...
 
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
     </div>
   </div>
 
   <div class="page">
+    <div class="tips">
+      <p>
+        对推送和 API 响应使用相同的代码来处理。
+      </p>
+    </div>
     <div class="content">
       <h1>Tips for Coding</h1>
       <br>
@@ -282,6 +432,20 @@ join: ->
     channel = Channels.add params.data
   channel.<mark>joinHandler</mark>(params.data)
       </pre>
+      <p><a onclick="$('.tips').fadeIn();" class="tip-btn">?</a></p>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="content">
+      <h1>About Me</h1>
+      <br>
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAACfFBMVEXS9P7Z9v/8/P/N8vzY9f7X9f/G7PvR8v3u9vvQ9f7U9P7J8PyAweD1+f3P9P3e9/3g8vrS8v7L8PvP8PzU9v/a9f3m9Pzh9Pu96Pns9fvy9vzG6/3I7Pve7/i55vjQ6/jb9//09/zE6vu35fnP6/bL8/zU7fq45vrb7vmExeLc9f7N8PzI7vzV7/u65/qgzOP6/f/4+/7W9P7Z8fz1+/73+v7y+P3P8vy/6/vZ7ffZ9P3C8P3A6vu+6vvG7/3c7/r+/f/D7f3M7vzS6/mKxeHu9/3k9fzf9fzJ8vzw9vvX7vqt3vbA7fy76fvq9PnR7fnS6vaCxOLF7f3g8fmo3ffM6vX4/P/S9f/y+f7q9f3U8f3L7Prc7vfs9/3E8P3m8/n////q9/7k9/7i9/70+P3h9f3N9P3K7/3m9vzc8/zo9Puv4Peq3vX8/v/b9/7o9v3C7P3j9PvO7Pu16PnB5/i+5vjJ6fbP6fXm9/7H8f3I7P3R7vvi8vq56Pqy4PeNxuLo9f3L8f3c8Pre7/rI6fq46Pri8fiy4viv4vim3vbH5/XD5fWm1uydy+OVyOHw9/205PnU7PfL6ffK7v3K7P205fm75fis4PeHxeHt+v7H7f3W8Pze8frX7frW6/fH6ve44va14fa+4/Wq0+iu0+eayeLo+f7g9/3Z7/nE5/mx5fmk2/eV2fbL5/Xq+f+76vvZ7vqj3fee2vai0OeRx+LX9//s+P7w+f2n3fjD6veZ2faQ1vbF3+7y+/7s9f2m3POy3vHG4e+Xzebv+v/e9/+q3/jC3u6c0OiPyuR8v97e8f3E4O+r2e683O2ZzubL6fmz1umh0+nJ4u+VzOQw5DBQAAAMTklEQVRYw0yRO27jMBRFnz4EIQ4gQrGItG7UKI1DCCNAlZsRswLbGCCFJVCIi2haTZlleAN2ly6ZKlU2Npf0JzmwSdvwPe+SohwwxvI1UZKsk0S8vcVx7N5BEMxHEIxzKY9SjvPgxKjUvvrV34fV3liXWudEXuAQuYhjSAAEADEIpPkSKGU/96+HxWqzNXtKfQxxJxjWpPM8Dt7iAIJLHvsowRw/uvi4e33qusN9tZFldxbkF8Han0gHXjAi6fNKlSUE/lhqV/aTlN17VT129twAOdchTRPCR4a0N6CK26AolcIlKIjmZVn2vZmMbY1q260TpGmeMSdIhojoLGBIXlZvKKXn2MvSqM+9ke3Ut7tXGjCVcpETNqpTWETgYQhjBYF7Dgodjl33dGuNNPb4bsytfeq2H742CQjoKmBXAdPMoXVcooky7XTorFGo0Chjp8/HakUpDLi5tSvACWQZA8gDiPOTwX3pJszsjSnH+c7I2/5QrRahEwz+CZzySUqZEC7DGB6I8O1YLuBQuLsy1rjIIDCdPP5BPAwpGoYIzdMkrYcky4bBXarQkGC2QB8ociE0axrbqoaBWB07229Xy+cwXFAURUURnUCb804cPTDfCQAEGsdWOhOZYE37uJ02GA+eqfB4xXASYK1rxBEjaCDBKjLdZLye1ZwLbTf/PhbL7wLwAMcV/O00OztDnPOM89ks4r+1ttVPzPcs6QEUxfBQYHvBcW6KmwggQOReNSHI0xrTgRNQvNuEV+gvBC8/bpwGk+vo7g4aRzpwpGq802g2u5vVWGDgvNF6v/wS/GeiDF6bhuI4HutIhq91NsWKNoJ6S1+k6Yy1Ju7RVxZRCEhyKDWzwVo09VBaQbCph5q71kN2qO1Bca67eVmZCE7qHG7gHE7/IX+pE/wQ8iDw+7zv+5KEeN4NHk1zhN1xV8JOeR9j2C0kwcGKMX8UBPAIc9z9kw+V/xJoYHA8hNCNoxx8MDPc0Rs87/v8FBDgBOZ50HEhkMieqb9ci00TyCU5FGia4xAXoQfc3M7OzpuZKyBz/SLc+X8gjO1L6l/S9Wp5s9FoRAqRUqkkZw8FDvEeqG9FsS+mj/kIcJEUHCow4jE3d280Gr0HXn3dlO/+JZtVlDKjWZpGQILia30RDHtzx10iSQgRqYhdxC+5LsLc9u7ilO5idzxezYS8+CnHyh90hmoOhXnvwcxEDAXmpXlMHGjFIZAdLS0hBILabn+xPzV0e+MXmSk/G2Vdr8IRLMOgmhdPm6L4HAwHawlELMkj7nIYBLmBy0MCGA+BBL1/Arm8UW2CgIDA8dU9UYyqE7jdsn3JkizLkkKBBPBcev/31hZc++Nud3X93ZQfil591mYcqFCDAMOoaD6v1UxT3NrmggEFATsIAqJJQVhCeq52r90efV3vdr8cdhjJVarP6gxCHtEc/9yBaEbhfzkxxejreSzRVKtFBwPWokIRwJxtX7TVhyMQfLtbKBQijazyQa82k4wLfXv+/NMwwJEENGGKu7V4QK0OTXUghCV1JEGQlt1iECQutdfHvS/hfPZyLKffbjabjCKX69fV7f2wgbjkHpuYZvTtvE9a1KCUShLLsgM2pNMR+OG99V7m191CRCnfnP1cqSeTSQZeqkKhcXVRFPfUIiEYIpj9bY6whnHNuGBZML8ssALACsVh+2A18wv2V3KzldtNEDxiIrJckBsrmZ6pxonRCuwJGCacRFuGkTdSAmwtsMAFVmCXhu2VTOZTQ46dB0Glmbx+6hSjbJZiuSe91d7eMRdGWkXVjEajCZe28gv5PIVBEHQ6qRQIinZ95UXme1a5fEaffRYe4NQJRj+9UXl/9s6dO0M8yBv5vIWFjx8fs2zLuLawsEBZQGAvGDQFa2BvTAWx3Kx+unn9UPCHaPJ5bRoM43jwID20ECgk75Y20kQSD+a1JXVUSAy2LIdgDBgYZnGHgsLay9pkA1kaLGlz0tYftKKupepWUC8VJg5BhF0UFf2bfOJEP4Hn9nzyfJ8n6er1jQ/1O3X9MlNJ4M7D2Z63KpWWUqkkEUDGANd3GbdR3h8MPhUTgdNt63obBFttur0Jceiy1FoAqALRr4JIUVuK8keQYxiOU66AQD5KBGuJYKMLC+iQJNGmG3KDpkn9Q7muoNAMF+oCqaYKKC1ud8RBeo6DyjG7OWkTlggTPEh9prrwepKcEI2JvLfXaMi0XiojjBehaYamykJ/hWNykD/Z45UWRGC40frW/hwiXAQB5Kehv0fIsixJUKKtlUzFxDG0I4QWiqJwuVF1VH2ey+3mOKZ/euSNqtHR/nAOEyynnGYimER5QtozpMTwmnYKDd+MMTKRCo/CjbLr68F6FmrVhVE8wSKpG4fD+Y8SCOrNbjJBb0JIkrEnCJIhd5xlGYuxiWEEQD09e3XvL6+8EXOaCWhHLx28nx+v3XqQWrrW7NAkPMkEAmDIJHVkxTwbYxyHSMVK9WUa+PanWF4/6EukTJYOhoMfa7dWVpZTTVgiQAgQwLICSbbb0ZgXxTjEZqxiELxInwCCwINDurJLlw+GFz6VCplby6kNqgP9NlEDgWAFBklTM98XxRAEYSyy6PzL/wLPVWZyp+1Szw7mg+O1TCFTSC1Rdr7Xy8MEryNDCCRSd7bHvp9EQP4TzIbczv1/eMmnMPsebWzuDwfHxVKmUEg1abunaXliakSRYQiWJDsr7Fj0QyyyrC+y2OTcIJsNgiBbrfYVtNPf6Xu0fnh3flwsZlaXupQNgpsaIUyN15cEuMM7sgkJWGiF10PBpgq/0/a2AiAWv+G4nNC9fXj3/ZdTmZTTpUh7omnnIqJ2xnr0aGpMpwbpTIzkgqbJij4gijj2WcSaWORZnt3uz6jVZ1+fpn9eXF1qtm07H93UNI04e/bMGUsQajVL62Soj+gjAp7EcA/E8lD5scj7Ig/seO96m1/T6Z83tiiKzGvaTRCcOxFYtVpNEKLVHj0pPvYabypIxE9clxFBII55sPDjh2/Zvvv9V/rpl3LTzk9gge+McyeC3x2Wz8vScBzHR4fYIcHTQxt8HeaQXTpITBgUHuw5zMEauEHWYhcvuUE84rZDsqLHNjchdZC7pI968ieol0wpITAqiOdf6qPv02B8Xt/P+7P397tvnqLyzwDy8CoDx+P3zJ2vj6r3zft3n1kfEwmoBKU6XqfTTNx99PPeu1+xy6s4OGD6HMMwmAIESaLyoPSEgBMbvnJZvH18c1OlbmqJROJzqtOZdWZesxl5D178vvfpVyxbqhe/oBV3BliKQoNONqiHObh6wFbJJh+V2peviNKz6mvzfurzzJs1m029Ca6e/nn6D1KkXRevVW7CcBxm0RR9JoDSDM6yLLyPsWwyCYGvlPjak1QKlveaUTS035rTl5OL92/w9/FVvs8wuQkAQqqbp6GNEyCHl2NwZLezLPx5QEny8sOHb98Sp/6FIcU1zF7CTFdp8dVFfkoxKkIICyhFoWzl5KSbY+Kl5yxbfl5mYxm4wGQy7VdX3KRgpmaOIdT6vd4s0psjr6aVKrkGxeTciotJRfrGVhTLCpUi4a7iP9qxEyCTycRiLGy6SVidJj7P9CgyG7pgCL4f6TVV0xCdLqB6pYhprmgrYWgFlq2iegFd/CiXs+WTE5583sb5v6EJgfIi2X/c8eX1di0bUaoRSCu6HzbQFYPxuIYCKwiUUGI41Ef1H20WxkeSPEHgbdxN18xaKuU0j1vneBQO87Vg6L08NZ3WhLlQRLcYTjADxl4GkAau7jJIKxFJEsd5nieAwOOrwtuw53mC7OuHtSzLB8EZSfHbkWNsFgtHFzBV7SqcmleogTTQENI0gs/y+CWU4gBgWZIk6tZY14+CvF6vD75Ts5Z5xXTkzW6x2OwcrHBN21KXWy7tAeMilyB4PptNxngSFwFwjgVZtz3D97dzeStvWy6TV+yhsQbAzjIFjLOXNKO5sD4tqXUgQPuQI3AhVggieRZfHEVbH/r3DWHMuN2pNZI3m91+EUg9jLOCZRdpaCAFYZfrckgjIIgwBkLURBFmSZJJUvw7hPrt3BA8J7hO14aCP4cR7L91bUxahq1gqarcQOoOONgf6ELky2WcAIAm4uRJ7cp4aBwMeX4wnKEz7Y10eIYO9vvRGGsFrfG4ZUvSQLKXksRxqgt1uHhSRSRwEhwQlcJIF3Rhbhwd3XD0c6Dmu8V+Lwz/A2WaPdtKAnW7AAAAAElFTkSuQmCC">
+      <br>
+      <h2>@loddit</h2>
+      <br>
+      <p>Python > Ruby > Python > CoffeeScript!</p>
+      <p>Spine > Backbone > Meteor > Angular</p>
     </div>
   </div>
 
